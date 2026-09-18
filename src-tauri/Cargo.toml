@@ -1,0 +1,41 @@
+[package]
+name = "infinite-canvas-studio"
+version = "1.15.0"
+description = "Infinite Canvas Studio — a 100% offline infinite canvas with first-class Persian/RTL support"
+authors = ["Infinite Canvas Studio"]
+edition = "2021"
+rust-version = "1.77.2"
+
+# The Tauri context and commands live in the library crate; `main.rs` only
+# calls into it (this also enables mobile targets later).
+[lib]
+name = "infinite_canvas_studio_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+# Native OS file dialogs (the Windows save/open pickers) — the only extra
+# crate; it stays fully offline and is maintained alongside Tauri 2.
+tauri-plugin-dialog = "2"
+# OS default-browser hand-off for confirmed link opens (R3B.3) — the
+# frontend calls `plugin:opener|open_url`; stays fully offline (no fetch).
+tauri-plugin-opener = "2"
+# Single-instance + OS file-open plumbing (R8.8): a second launch (or an
+# Explorer double-click on an associated .icb) focuses the running window
+# and forwards the file path to the WebView as the `open-file` event.
+tauri-plugin-single-instance = "2"
+# SQLite storage of the version history (R8.5) — `sqlite:appdata.db`
+# through the namespaced DbAccess gate (core_ prefix, SEAMS §8).
+tauri-plugin-sql = { version = "2", features = ["sqlite"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

@@ -1,0 +1,15 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Default capability of the main window (core + native file-dialog + window-destroy + sql permissions — the app stays offline).",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "dialog:default",
+    "opener:default",
+    "sql:default",
+    "core:window:allow-destroy"
+  ]
+}

@@ -1,0 +1,817 @@
+@import "../ui/theme/fonts.css";
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Vazirmatn", "Tahoma", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "Vazirmatn", monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+/*
+ * Subtle entrance of the Phase 0 empty-state overlay
+ * (used via the `animate-[empty-fade-in_...]` arbitrary utility).
+ */
+@keyframes empty-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+ * Slide-up + fade entrance of the floating toolbar
+ * (used via the `animate-[toolbar-rise-in_...]` arbitrary utility).
+ * Only `transform` animates; the toolbar's horizontal centering uses the
+ * standalone `translate` property (Tailwind v4), so both compose safely.
+ */
+@keyframes toolbar-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+ * Pop-in entrance of the layers panel (direction-neutral: opacity + scale,
+ * so RTL and LTR share one animation).
+ */
+@keyframes panel-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/*
+ * Error shake of the project-menu button when an import is refused
+ * (horizontal wiggle, direction-neutral).
+ */
+@keyframes error-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-3px);
+  }
+  40% {
+    transform: translateX(3px);
+  }
+  60% {
+    transform: translateX(-2px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+.animate-shake {
+  animation: error-shake 0.4s ease-in-out 1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/*
+ * ── Panel scroll bodies (inspector, layers) ──────────────────────────────
+ * The floating panels are auto-height boxes clamped by max-height, so their
+ * scroll hosts use NATIVE overflow (a Radix ScrollArea viewport cannot
+ * resolve `height: 100%` against that indefinite chain in Chromium — content
+ * would clip unreachable). These rules style the native bar to match the
+ * glassy panels: thin, rounded, semi-transparent thumb that follows the
+ * current theme. `scrollbar-gutter: stable` avoids content shifting when
+ * the bar appears/disappears on content growth.
+ */
+.panel-scroll {
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  scrollbar-color: color-mix(in oklab, var(--foreground) 24%, transparent)
+    transparent;
+}
+.panel-scroll::-webkit-scrollbar {
+  width: 9px;
+}
+.panel-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.panel-scroll::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--foreground) 22%, transparent);
+  border: 2.5px solid transparent;
+  background-clip: padding-box;
+}
+.panel-scroll::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--foreground) 34%, transparent);
+  background-clip: padding-box;
+}
+
+/*
+ * ── DOM text overlay (CLAUDE.md §1.3) ─────────────────────────────────────
+ * The accent of the canvas painter (oklch 340 hue) is mirrored here so the
+ * editing chrome, caret and placeholder share the canvas layer's ink.
+ */
+:root {
+  --canvas-accent: oklch(0.5 0.2 340);
+  --canvas-accent-soft: oklch(0.5 0.2 340 / 22%);
+}
+.dark {
+  --canvas-accent: oklch(0.84 0.16 340);
+  --canvas-accent-soft: oklch(0.84 0.16 340 / 22%);
+}
+
+/* Static text object views: transparent, crisp, non-interactive. */
+.text-object-view {
+  outline: none;
+}
+
+/* The actively edited view: accent ring + soft glow + live caret. */
+.text-object-view.text-object-editing {
+  pointer-events: auto;
+  cursor: text;
+  border-radius: 6px;
+  caret-color: var(--canvas-accent);
+  box-shadow:
+    0 0 0 1.5px var(--canvas-accent),
+    0 0 24px 2px var(--canvas-accent-soft),
+    0 8px 32px -8px oklch(0 0 0 / 35%);
+  transition: box-shadow 0.15s ease-out;
+}
+
+/* Editing text selection highlight matches the canvas accent. */
+.text-object-view.text-object-editing ::selection {
+  background: var(--canvas-accent-soft);
+}
+
+/* Placeholder of an empty live editor (CSS attr keeps it render-free). */
+.text-object-view.text-object-editing:empty::before {
+  content: attr(data-placeholder);
+  color: var(--muted-foreground);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* Sticky note cards: pastel card look with a paper shadow. The card
+   geometry scales with the camera transform (world-unit radius/shadow),
+   so cards stay consistent at any zoom. The ink is fixed dark (set
+   imperatively from the object data). */
+.sticky-note-view {
+  border-radius: 4px;
+  box-shadow:
+    0 1px 2px oklch(0 0 0 / 22%),
+    0 6px 18px -6px oklch(0 0 0 / 32%);
+  /* Subtle folded-corner sheen: a hairline lighter edge on the top side
+     sells the paper feel without an extra DOM node. */
+  border-top: 1px solid oklch(1 0 0 / 35%);
+}
+
+/* The actively edited sticky note: stronger paper lift + accent ring so
+   the editing state stays obvious on busy canvases. */
+.sticky-note-view.text-object-editing {
+  box-shadow:
+    0 0 0 1.5px var(--canvas-accent),
+    0 0 24px 2px var(--canvas-accent-soft),
+    0 10px 26px -6px oklch(0 0 0 / 42%);
+}
+
+/* Sticky placeholder tint keeps the muted ink visible on pastel cards. */
+.sticky-note-view.text-object-editing:empty::before {
+  color: oklch(0.35 0.02 55 / 55%);
+  opacity: 1;
+}
+
+/* ── فاز ۲۵ «سنجاش روی صفحه»: pinned DOM views ────────────────────────
+   A pinned text box / sticky note floats in screen space: an amber ring
+   marks the state, a pin chip rides the top-right corner, and the
+   selection adds the dashed accent frame (the canvas handles renderer
+   owns only the world pass). Physical offsets (right/top) are
+   viewport-absolute — never RTL-flipped (the anchor contract). */
+.text-object-view.text-object-pinned {
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 1px oklch(0.8 0.14 80 / 55%),
+    0 10px 28px -8px oklch(0 0 0 / 38%);
+}
+.text-object-view.text-object-pinned::after {
+  content: "📌";
+  position: absolute;
+  top: -11px;
+  right: -11px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  font-size: 11px;
+  line-height: 1;
+  background: var(--background);
+  border: 1px solid oklch(0.8 0.14 80 / 55%);
+  box-shadow: 0 2px 8px -2px oklch(0 0 0 / 30%);
+  pointer-events: none;
+}
+.text-object-view.text-object-pinned.text-object-pinned-selected {
+  /* فاز ۲۷: the pinned selection stays AMBER (the pin identity) — reads
+     "pinned" against the violet world-selection language. */
+  outline: 1.5px dashed oklch(0.8 0.14 80);
+  outline-offset: 3px;
+}
+
+/* ── Phase 3A: rich text (TipTap/ProseMirror) prose styles ─────────────
+   The SAME rules apply to the serialized static HTML and to the live
+   editor (the host nests inside the view root), so rendering is identical
+   in both states (AC3A.1). */
+
+/* Rich blocks carry zero margins — box geometry is content-driven. */
+.text-object-view p,
+.text-object-view h1,
+.text-object-view h2,
+.text-object-view h3,
+.text-object-view ul,
+.text-object-view ol,
+.text-object-view blockquote,
+.text-object-view pre {
+  margin: 0;
+}
+
+/* The live editor host: fills the view's content box (padding stays on
+   the view root so static and live metrics agree). */
+.text-object-view .text-editor-host {
+  position: relative;
+  min-height: 100%;
+}
+
+/* The ProseMirror root inside the host: invisible chrome, same wrapping
+   behaviour as the static path (pre-wrap + break-words on the view). */
+.text-object-view .text-editor-host .ProseMirror {
+  outline: none;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  min-height: inherit;
+}
+
+/* Static empty paragraphs keep one line box (the live editor renders a
+   trailing <br> in empty blocks) — a zero-width strut matches heights, so
+   entering/leaving edit mode causes no visual jump (AC3A.1). Only direct
+   children (the static serialization); live blocks use the real <br>. */
+.text-object-view > p:empty::before {
+  content: "\200B";
+}
+
+/* Live placeholder (TipTap Placeholder extension) — inline at the block
+   start, so RTL and LTR paragraphs each anchor it on their own side. */
+.text-object-view .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--muted-foreground);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Sticky placeholder tint also applies to the rich placeholder on cards. */
+.sticky-note-view .ProseMirror p.is-editor-empty:first-child::before {
+  color: oklch(0.35 0.02 55 / 55%);
+  opacity: 1;
+}
+
+/* Rich marks render as-is: spans carry inline styles (font size/colour,
+   line height, letter spacing) in world units — the camera transform maps
+   them 1:1 at any zoom. Highlight uses the extension's default soft yellow
+   with theme-aware ink readability. */
+.text-object-view mark {
+  padding: 0 0.1em;
+  border-radius: 0.15em;
+  color: inherit;
+}
+
+/* ── Phase 6 (R6.1–R6.7): tables in text objects ──────────────────────
+   The SAME rules apply to the serialized static HTML and to the live
+   editor (the host nests inside the view root), so rendering is identical
+   in both states (AC3A.1). `dir` rides on the table element itself
+   (rtl → column 1 renders on the RIGHT, R6.5); preset skins key off
+   data-table-preset (R6.4); prosemirror-tables adds .selectedCell and
+   .column-resize-handle live decorations (R6.3). */
+
+.text-object-view table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+/* The live resizable node view wraps the table; static HTML has no
+   wrapper. The wrapper must never introduce its own scrollbars — the
+   canvas zoom maps it 1:1 and the box geometry follows content. */
+.text-object-view .tableWrapper {
+  max-width: 100%;
+  margin: 0;
+}
+
+.text-object-view td,
+.text-object-view th {
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  vertical-align: top;
+  text-align: start;
+  position: relative;
+  overflow-wrap: break-word;
+  min-width: 24px;
+  line-height: inherit;
+}
+
+/* Rows grow with content (R6.3): cells never clip — the paragraph's line
+   boxes drive the height naturally. */
+
+.text-object-view th {
+  font-weight: 600;
+}
+
+/* Live selected-cell decoration (multi-cell drag selections, R6.4). */
+.text-object-view .selectedCell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: color-mix(in oklab, var(--primary) 22%, transparent);
+  pointer-events: none;
+}
+
+/* Column resize grab handle on the column's end edge (R6.3). In RTL the
+   handle still sits on the physical right — prosemirror-tables positions
+   it inline; drag semantics stay per-logical-column. */
+.text-object-view .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: -1px;
+  width: 4px;
+  background: var(--primary);
+  opacity: 0.6;
+  z-index: 10;
+  cursor: col-resize;
+}
+
+body.resize-cursor,
+body.resize-cursor * {
+  cursor: col-resize;
+}
+
+/* ── Style presets (R6.4, ≥6) ──────────────────────────────────────── */
+
+/* classic: full borders + tinted bold header row. */
+.text-object-view table[data-table-preset="classic"] th {
+  background: color-mix(in oklab, var(--accent) 55%, transparent);
+}
+
+/* minimal: horizontal rules only, header emphasised. */
+.text-object-view table[data-table-preset="minimal"],
+.text-object-view table[data-table-preset="minimal"] td,
+.text-object-view table[data-table-preset="minimal"] th {
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+.text-object-view table[data-table-preset="minimal"] tr:last-child td,
+.text-object-view table[data-table-preset="minimal"] tr:last-child th {
+  border-bottom: 1px solid var(--border);
+}
+.text-object-view table[data-table-preset="minimal"] th {
+  border-bottom: 2px solid var(--foreground);
+  background: transparent;
+}
+
+/* zebra: alternating row tint. */
+.text-object-view table[data-table-preset="zebra"] th {
+  background: color-mix(in oklab, var(--accent) 55%, transparent);
+}
+.text-object-view table[data-table-preset="zebra"] tbody tr:nth-child(even) td {
+  background: color-mix(in oklab, var(--muted) 40%, transparent);
+}
+
+/* soft: rounded outer frame + gentle row separators + soft header tint. */
+.text-object-view table[data-table-preset="soft"] {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.text-object-view table[data-table-preset="soft"] td,
+.text-object-view table[data-table-preset="soft"] th {
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
+}
+.text-object-view table[data-table-preset="soft"] tr:last-child td,
+.text-object-view table[data-table-preset="soft"] tr:last-child th {
+  border-bottom: 0;
+}
+.text-object-view table[data-table-preset="soft"] th {
+  background: color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+/* grid: strong full grid including inner verticals. */
+.text-object-view table[data-table-preset="grid"] td,
+.text-object-view table[data-table-preset="grid"] th {
+  border: 1px solid color-mix(in oklab, var(--foreground) 30%, transparent);
+}
+.text-object-view table[data-table-preset="grid"] th {
+  background: color-mix(in oklab, var(--foreground) 10%, transparent);
+}
+
+/* dark: inverted header band, tinted body. */
+.text-object-view table[data-table-preset="dark"] th {
+  background: color-mix(in oklab, var(--foreground) 82%, transparent);
+  color: var(--background);
+  border-color: color-mix(in oklab, var(--foreground) 82%, transparent);
+}
+.text-object-view table[data-table-preset="dark"] td {
+  background: color-mix(in oklab, var(--muted) 30%, transparent);
+}
+
+/* Cell inline background colours (R6.4 attr) render as-is; the palette
+   colours are chosen readable over both themes' inks. */
+
+/* ── Phase 3B (R3B.1): block typography — the central theme ────────────
+   Heading sizes/weights/spacing live HERE (single source of truth); the
+   font is inherited Vazirmatn from the view root. The SAME rules apply to
+   static serialization and the live editor (AC3B.1). First blocks keep a
+   zero top margin so box geometry never gains a phantom leading gap. */
+
+.text-object-view h1,
+.text-object-view h2,
+.text-object-view h3 {
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0.45em 0 0.18em;
+}
+.text-object-view > h1:first-child,
+.text-object-view > h2:first-child,
+.text-object-view > h3:first-child {
+  margin-top: 0;
+}
+.text-object-view h1 {
+  font-size: 2em;
+  font-weight: 800;
+}
+.text-object-view h2 {
+  font-size: 1.55em;
+}
+.text-object-view h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+/* Blockquote (R3B.1): inline-start rule + muted ink; the logical property
+   flips to the correct side for RTL blocks automatically. */
+.text-object-view blockquote {
+  border-inline-start: 3px solid
+    color-mix(in oklab, var(--foreground) 35%, transparent);
+  padding-inline-start: 0.75em;
+  margin: 0.3em 0;
+  color: color-mix(in oklab, var(--foreground) 72%, transparent);
+}
+
+/* Code block (R3B.1): monospace, muted panel, wrapped (canvas geometry is
+   content-driven — pre-wrap instead of scroll). */
+.text-object-view pre {
+  font-family: "Cascadia Mono", "Courier New", monospace;
+  font-size: 0.85em;
+  line-height: 1.5;
+  background: color-mix(in oklab, var(--muted-foreground) 14%, transparent);
+  border-radius: 0.4em;
+  padding: 0.45em 0.6em;
+  margin: 0.3em 0;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  direction: ltr;
+  text-align: start;
+  unicode-bidi: isolate;
+}
+
+/* Inline code mark (R3B.4 `code`). */
+.text-object-view code {
+  font-family: "Cascadia Mono", "Courier New", monospace;
+  font-size: 0.88em;
+  background: color-mix(in oklab, var(--muted-foreground) 16%, transparent);
+  border-radius: 0.25em;
+  padding: 0.08em 0.3em;
+  unicode-bidi: isolate;
+}
+
+/* Horizontal rule (R3B.1). */
+.text-object-view hr {
+  border: none;
+  border-top: 1px solid color-mix(in oklab, var(--foreground) 30%, transparent);
+  margin: 0.55em 0;
+}
+
+/* ── Phase 3B (R3B.2): lists — RTL-correct markers ─────────────────────
+   `dir` rides on the LIST element (Direction global attribute), so the
+   marker side and its padding follow each list's own base direction:
+   RTL lists put bullets/numbers on the RIGHT (AC3B.2, Appendix B item 9). */
+
+.text-object-view ul,
+.text-object-view ol {
+  padding-inline-start: 1.4em;
+  margin: 0.15em 0;
+  list-style-position: outside;
+}
+.text-object-view ul {
+  list-style-type: disc;
+}
+.text-object-view ul ul {
+  list-style-type: circle;
+}
+.text-object-view ol {
+  list-style-type: decimal;
+}
+.text-object-view li {
+  margin: 0.08em 0;
+}
+.text-object-view li > p {
+  margin: 0;
+}
+/* Tight nesting: nested lists hug their item, not the block edge. */
+.text-object-view li > ul,
+.text-object-view li > ol {
+  margin: 0.08em 0;
+}
+
+/* Task list (R3B.2): flex layout per item; the label (checkbox) sits at
+   the inline START, which flips to the right for RTL items (li[dir=rtl]). */
+.text-object-view ul[data-type="taskList"] {
+  list-style: none;
+  padding-inline-start: 0.1em;
+}
+.text-object-view li[data-type="taskItem"] {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45em;
+}
+.text-object-view li[data-type="taskItem"] > label {
+  flex: none;
+  margin-top: 0.18em;
+  user-select: none;
+  line-height: 1;
+}
+.text-object-view li[data-type="taskItem"] > label input[type="checkbox"] {
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  accent-color: var(--canvas-accent, var(--primary));
+  cursor: pointer;
+}
+.text-object-view li[data-type="taskItem"] > div {
+  flex: 1;
+  min-width: 0;
+}
+.text-object-view li[data-type="taskItem"][data-checked="true"] > div {
+  color: color-mix(in oklab, var(--foreground) 55%, transparent);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+/* ── Phase 3B (R3B.3): links — styled distinctly, never auto-opened ──── */
+.text-object-view a,
+.text-object-view .ProseMirror a {
+  color: var(--canvas-accent, var(--primary));
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in oklab, currentColor 55%, transparent);
+  cursor: pointer;
+  unicode-bidi: plaintext;
+}
+.text-object-view a:hover,
+.text-object-view .ProseMirror a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ── فاز P2 (RP2.3) + fix2: the pdf.js text layer — transparent spans over
+   the viewer's canvas so native mouse selection + Ctrl+C copy work.
+
+   FIX (exe bug report 3 — «متن فارسی به‌هم‌ریخته / قابل انتخاب نیست»):
+   pdf.js v6's TextLayer positions/sizes its spans through a CSS
+   custom-property CONTRACT (pdf_viewer.css's own .textLayer block,
+   Apache-2.0). The previous inlined copy predated that contract, so:
+   - `--total-scale-factor` was never derived from the `--scale-factor`
+     the viewer sets → setLayerDimensions' `round(down, …)` width/height
+     were INVALID at computed-value time → the layer's box drifted
+     (up to ~24px) off the canvas in RTL and every span's percent
+     left/top resolved against the WRONG box → selection highlights
+     landed beside the real glyphs («به‌هم‌ریختگی»);
+   - the spans kept the INHERITED font-size (≈16px) instead of
+     `calc(var(--text-scale-factor) * var(--font-height))`, and the
+     `--scale-x` / `--rotate` corrections were never applied → the
+     transparent hit boxes were too small/short, so dragging over
+     text mostly landed in gaps and selected NOTHING («قابل سلکت نیست»).
+   This is a faithful v6 port (class renamed .textLayer → .pdf-text-layer;
+   scale-factor bridged from the var FloatingPdfViewer sets on the host). */
+.pdf-text-layer {
+  color-scheme: only light;
+
+  position: absolute;
+  text-align: initial;
+  inset: 0;
+  overflow: clip;
+  opacity: 1;
+  line-height: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  forced-color-adjust: none;
+  transform-origin: 0 0;
+  caret-color: CanvasText;
+  cursor: text;
+  z-index: 2;
+
+  /* The reference viewer pins the PAGE (and thus the layer) LTR so the
+     RTL app chrome never leaks into text geometry (pdf_viewer.css's
+     `.page { direction: ltr }`); span-level `dir` attributes (set by
+     pdf.js per run) still shape/bidi the runs themselves. */
+  direction: ltr;
+
+  /* The v6 scale contract (pdf_viewer.css bridges the same vars on
+     .page): --scale-factor is set on this host by FloatingPdfViewer. */
+  --user-unit: 1;
+  --total-scale-factor: calc(var(--scale-factor, 1) * var(--user-unit));
+  --scale-round-x: 1px;
+  --scale-round-y: 1px;
+  --min-font-size: 1;
+  --text-scale-factor: calc(var(--total-scale-factor) * var(--min-font-size));
+  --min-font-size-inv: calc(1 / var(--min-font-size));
+}
+.pdf-text-layer span,
+.pdf-text-layer br {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+  -webkit-user-select: text;
+  user-select: text;
+}
+/* The per-span sizing/transform machinery: font-size from the measured
+   PDF font height, width correction via --scale-x (measured against
+   the real glyphs), rotation for angled runs. */
+.pdf-text-layer > :not(.markedContent),
+.pdf-text-layer .markedContent span:not(.markedContent) {
+  z-index: 1;
+
+  --font-height: 0;
+  font-size: calc(var(--text-scale-factor) * var(--font-height));
+
+  --scale-x: 1;
+  --rotate: 0deg;
+  transform: rotate(var(--rotate)) scaleX(var(--scale-x))
+    scale(var(--min-font-size-inv));
+}
+/* Defensive: only emitted when a caller asks for marked content —
+   wrappers must never box their absolutely-positioned children. */
+.pdf-text-layer .markedContent {
+  display: contents;
+}
+.pdf-text-layer span[role="img"] {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+/* fix2: the reference viewer's selection bridge (TextLayerBuilder's
+   endOfContent). Normally a zero-height strip BELOW the layer's text;
+   while the layer is `selecting` it spans the whole page so a drag past
+   the last run extends the selection to the end instead of collapsing.
+   Wired by src/ui/player/textLayerSelection.ts. */
+.pdf-text-layer .endOfContent {
+  display: block;
+  position: absolute;
+  inset: 100% 0 0;
+  z-index: 0;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.pdf-text-layer.selecting .endOfContent {
+  top: 0;
+}
+.pdf-text-layer ::selection {
+  background: color-mix(in oklab, var(--primary) 35%, transparent);
+}

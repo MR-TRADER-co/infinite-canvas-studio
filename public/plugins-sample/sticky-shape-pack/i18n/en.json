@@ -1,0 +1,14 @@
+{
+  "group": "Sticky Shapes",
+  "panel.title": "Sticky Shapes",
+  "settings.title": "Sticky Shapes",
+  "settings.description": "Default colour for new stars and hearts; applies to newly created shapes only.",
+  "settings.color": "Default colour",
+  "settings.saved": "Saved.",
+  "command.insertStar": "Insert sticky star",
+  "shape.star.title": "Sticky star",
+  "shape.heart.title": "Sticky heart",
+  "shape.burst.title": "Sticky burst",
+  "panel.insertHint": "Click a shape to insert it:",
+  "panel.created": "Created!"
+}

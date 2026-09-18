@@ -1,0 +1,79 @@
+/*
+ * Vazirmatn — bundled locally (100% offline, no network fonts).
+ * Font files live in src/assets/fonts/ alongside the OFL 1.1 license
+ * (OFL.txt). Weights 100–900 are registered so the whole type scale
+ * is available to the shell and the future rich-text editor.
+ * Fallback stack: Tahoma (per CLAUDE.md §1.2).
+ */
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("../../assets/fonts/Vazirmatn-Thin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("../../assets/fonts/Vazirmatn-ExtraLight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../../assets/fonts/Vazirmatn-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../assets/fonts/Vazirmatn-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../assets/fonts/Vazirmatn-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../../assets/fonts/Vazirmatn-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../assets/fonts/Vazirmatn-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../../assets/fonts/Vazirmatn-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../../assets/fonts/Vazirmatn-Black.woff2") format("woff2");
+}

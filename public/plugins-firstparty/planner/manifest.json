@@ -1,0 +1,11 @@
+{
+  "id": "planner",
+  "name": "برنامه‌ریز (Planner)",
+  "version": "1.0.0",
+  "sdkRange": "^1.0.0",
+  "permissions": ["storage", "datahub", "projectRead", "projectWrite"],
+  "dependencies": [],
+  "entry": "entry.js",
+  "icon": "icon.svg",
+  "description": "اهداف و کارها با وضعیت و تاریخ سررسید — ارائه‌دهندهٔ قرارداد planner.tasks و مصرف‌کنندهٔ calendar.events."
+}

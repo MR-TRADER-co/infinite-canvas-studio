@@ -1,0 +1,14 @@
+{
+  "group": "شکل‌های یادداشتی",
+  "panel.title": "شکل‌های یادداشتی",
+  "settings.title": "شکل‌های یادداشتی",
+  "settings.description": "رنگ پیش‌فرض ستاره‌ها و قلب‌ها؛ فقط برای اشیاء تازهٔ افزونه اعمال می‌شود.",
+  "settings.color": "رنگ پیش‌فرض",
+  "settings.saved": "ذخیره شد.",
+  "command.insertStar": "درج ستارهٔ یادداشتی",
+  "shape.star.title": "ستارهٔ یادداشتی",
+  "shape.heart.title": "قلب یادداشتی",
+  "shape.burst.title": "شکوفهٔ یادداشتی",
+  "panel.insertHint": "برای درج روی هر شکل کلیک کنید:",
+  "panel.created": "ساخته شد!"
+}

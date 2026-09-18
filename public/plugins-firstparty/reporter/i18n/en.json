@@ -1,0 +1,22 @@
+{
+  "group": "Reporter",
+  "panel.title": "Reporter",
+  "command.generate": "Generate tasks report",
+  "day": "Day",
+  "week": "Week",
+  "month": "Month",
+  "completed": "Completed",
+  "pending": "Pending",
+  "overdue": "Overdue",
+  "streak": "Productive-day streak",
+  "events": "Calendar events",
+  "chart": "Completed tasks chart",
+  "summary": "Text summary",
+  "refresh": "Refresh",
+  "copy": "Copy",
+  "copied": "Copied.",
+  "save": "Save into project",
+  "plannerMissing": "Planner data unavailable; task stats are off.",
+  "calendarMissing": "Calendar data unavailable; event counts are off.",
+  "empty": "Nothing to report yet."
+}

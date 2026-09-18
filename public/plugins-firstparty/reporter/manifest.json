@@ -1,0 +1,11 @@
+{
+  "id": "reporter",
+  "name": "گزارش‌گر (Reporter)",
+  "version": "1.0.0",
+  "sdkRange": "^1.0.0",
+  "permissions": ["datahub", "storage", "projectRead", "projectWrite"],
+  "dependencies": [],
+  "entry": "entry.js",
+  "icon": "icon.svg",
+  "description": "آمار روز/هفته/ماه کارها و رویدادها با نمودارهای SVG راست‌به‌چپ و خروجی خلاصه — مشترک planner.tasks و calendar.events."
+}

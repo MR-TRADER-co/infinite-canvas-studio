@@ -1,0 +1,11 @@
+{
+  "id": "ai-analyst",
+  "name": "تحلیلگر هوش (AI Analyst)",
+  "version": "1.0.0",
+  "sdkRange": "^1.0.0",
+  "permissions": ["network", "datahub", "storage"],
+  "dependencies": [],
+  "entry": "entry.js",
+  "icon": "icon.svg",
+  "description": "تحلیل روزانه/هفتگی/ماهانهٔ خلاصهٔ پروژه و کارها با LLM بیرونی (کلید خودِ کاربر) یا Ollamaٔ محلی — با پیش‌نمایش شفاف داده‌ها پیش از هر ارسال."
+}

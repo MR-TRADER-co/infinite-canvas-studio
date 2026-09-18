@@ -1,0 +1,14 @@
+{
+  "id": "calendar",
+  "name": "تقویم (Calendar)",
+  "version": "1.0.0",
+  "sdkRange": "^1.0.0",
+  "permissions": [
+    "storage",
+    "datahub"
+  ],
+  "dependencies": [],
+  "entry": "entry.js",
+  "icon": "icon.svg",
+  "description": "تقویم جلالی/میلادی با رویدادها، تعطیلی‌های رسمی و ویجت جدول ماه — ارائه‌دهندهٔ قرارداد calendar.events."
+}

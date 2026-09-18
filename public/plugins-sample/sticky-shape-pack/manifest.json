@@ -1,0 +1,11 @@
+{
+  "id": "sticky-shape-pack",
+  "name": "Sticky Shape Pack",
+  "version": "1.0.0",
+  "sdkRange": "^1.0.0",
+  "permissions": ["storage"],
+  "dependencies": [],
+  "entry": "entry.js",
+  "icon": "icon.svg",
+  "description": "سه شکل تزئینی (ستاره، قلب، شکوفه) با تنظیم رنگ — نمونهٔ رسمی SDK."
+}
